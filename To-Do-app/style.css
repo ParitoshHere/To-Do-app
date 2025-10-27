@@ -1,0 +1,274 @@
+/* === Base Setup === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top left, #091921, #0f2027);
+  color: rgb(255, 255, 255);
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 10px;
+  position: relative;
+}
+
+/* === Background Shapes === */
+.background-shapes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2;
+  background: linear-gradient(45deg, #00e6e6, #0077ff);
+  filter: blur(120px);
+  animation: float 10s ease-in-out infinite;
+}
+
+.circle.big {
+  width: 350px;
+  height: 350px;
+  top: -100px;
+  left: -100px;
+}
+
+.circle.small {
+  width: 250px;
+  height: 250px;
+  bottom: -80px;
+  right: -60px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(30px); }
+}
+
+.side-gradient {
+  position: fixed;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.4;
+  filter: blur(80px);
+}
+
+.side-gradient.left {
+  left: 0;
+  background: linear-gradient(to right, #00e6e6, transparent);
+}
+
+.side-gradient.right {
+  right: 0;
+  background: linear-gradient(to left, #0077ff, transparent);
+}
+
+/* === Container === */
+.container {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 25px;
+  padding: 30px 40px;
+  width: 95%;
+  max-width: 850px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+h1 {
+  text-align: center;
+  color: #00e6e6;
+  margin-bottom: 8px;
+  font-size: 2rem;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 25px;
+}
+
+.input-section, .filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input, select, button {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+
+input, select {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+button {
+  background: linear-gradient(135deg, #00e6e6, #0077ff);
+  color: #0f2027;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 230, 230, 0.4);
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 230, 230, 0.6);
+}
+
+/* === Progress Section === */
+.progress-section {
+  margin: 25px 0;
+}
+
+.progress-bar {
+  background: rgba(255, 255, 255, 0.15);
+  height: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #00e6e6, #0077ff);
+  transition: width 0.4s ease;
+}
+
+#progress-text {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 0.9em;
+  color: #bbb;
+}
+
+/* === Task List === */
+ul {
+  list-style: none;
+}
+
+.task {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 18px;
+  margin: 12px 0;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 5px solid transparent;
+  transition: 0.3s;
+}
+
+.task:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+}
+
+.task.completed {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.task .details {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.task small {
+  color: #ccc;
+  font-size: 0.8em;
+}
+
+.task button {
+  background: none;
+  border: none;
+  color: #fdfdfd;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: 0.2s;
+}
+
+.task button:hover {
+  color: #00e6e6;
+}
+
+.priority-High { border-left-color: #ff5555; }
+.priority-Medium { border-left-color: #ffcc00; }
+.priority-Low { border-left-color: #4caf50; }
+
+/* === Responsive === */
+@media (max-width: 700px) {
+  .input-section, .filter-section {
+    flex-direction: column;
+  }
+  .container {
+    padding: 25px;
+  }
+}
+/* === FIX: Input Suggestion & Autofill Styling === */
+
+/* Placeholder text color */
+input::placeholder {
+  color: #b0d8ff;
+  opacity: 1;
+}
+
+/* Autofill background fix (Chrome, Edge, etc.) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+select:-webkit-autofill {
+  border: none;
+  -webkit-text-fill-color: #fff !important;
+  -webkit-box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.3) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Dropdown options for <select> */
+select option {
+  background: #0f2027;
+  color: #fff;
+}
+
+/* Date picker text fix */
+input[type="date"] {
+  color-scheme: dark;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Input and select focus glow */
+input:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 230, 230, 0.6);
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}

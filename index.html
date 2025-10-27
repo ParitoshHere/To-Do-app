@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager | Paritosh Sahu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background-shapes">
+    <div class="circle big"></div>
+    <div class="circle small"></div>
+    <div class="side-gradient left"></div>
+    <div class="side-gradient right"></div>
+  </div>
+
+  <div class="container">
+    <h1><span>🚀</span> Task Manager</h1>
+    <p class="subtitle">Organize your work and boost your productivity</p>
+
+    <!-- Input Section -->
+    <div class="input-section">
+      <input type="text" id="task-input" placeholder="Enter your task..." />
+      <select id="category">
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+        <option value="Study">Study</option>
+        <option value="Others">Others</option>
+      </select>
+      <select id="priority">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      </select>
+      <input type="date" id="due-date" />
+      <button id="add-btn">Add</button>
+    </div>
+
+    <!-- Search and Filter -->
+    <div class="filter-section">
+      <input type="text" id="search-input" placeholder="Search tasks..." />
+      <select id="filter-category">
+        <option value="All">All</option>
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+        <option value="Study">Study</option>
+        <option value="Others">Others</option>
+      </select>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-section">
+      <p>Progress</p>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+      <p id="progress-text">0 of 0 tasks completed</p>
+    </div>
+
+    <!-- Task List -->
+    <ul id="task-list"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
